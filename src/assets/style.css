@@ -1,0 +1,187 @@
+:root{
+  --sidebar-width: 260px;
+  --header-height: 56px;
+  --border: #e5e7eb;
+  --text: #0f172a;
+  --muted: #6b7280;
+  --active-bg: #e6f7f1;
+  --active-border: #a7f3d0;
+  --active-text: #059669;
+}
+
+html, body { height: 100%; }
+body { background: #fafafa; }
+
+.app-header {
+  border-bottom: 1px solid var(--border);
+  height: var(--header-height);
+}
+.brand{display:flex;flex-direction:column;justify-content:center;gap:2px}
+.brand-logo{height:20px}
+.brand-powered-row{display:flex;align-items:center;gap:6px;line-height:1}
+.brand-powered-text{font-size:12px;opacity:.8}
+.brand-powered-icon{height:14px}
+
+
+.header-actions { display:flex; align-items:center; gap:.5rem; }
+.icon-btn {
+  width: 36px; height: 36px; border: 0; border-radius: 10px;
+  display:grid; place-items:center; background:#f3f4f6;
+}
+.plus-btn { background:#d9f5ec; }
+.avatar {
+  width: 36px; height: 36px; border-radius: 9999px;
+  background:#e5e7eb; display:grid; place-items:center;
+}
+
+.sidebar {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  bottom: 0;
+  width: var(--sidebar-width);
+  padding: 14px;
+  border-right: 1px solid var(--border);
+  background: #fff;
+  overflow-y: auto;
+}
+
+.workspace-card {
+  display:flex; gap:.75rem; align-items:center;
+  padding: .5rem; margin-bottom:.5rem;
+}
+.workspace-icon {
+  width:34px; height:34px; border-radius:.75rem; background:#eef2ff;
+}
+.workspace-title { font-weight:700; font-size:.95rem; color:var(--text); }
+.workspace-subtitle { font-size:.8rem; color:var(--muted); margin-top:-2px; }
+
+.section-title {
+  font-size:.70rem; letter-spacing:.08em; text-transform:uppercase;
+  color: var(--muted); font-weight:700; margin:14px 8px 6px;
+}
+
+.sidebar-nav { gap: 4px; }
+
+.sidebar-link.nav-link {
+  color: var(--text);
+  border-radius: 12px;
+  padding: 10px 12px;
+  display:flex; align-items:center; gap: 12px;
+}
+.sidebar-link.nav-link i { font-size: 18px; }
+.sidebar-link.nav-link:hover { background:#f3f4f6; }
+.sidebar-link.nav-link.active {
+  background: var(--active-bg);
+  border: 1px solid var(--active-border);
+  color: var(--active-text);
+  font-weight: 600;
+}
+
+.content-area {
+  margin-left: var(--sidebar-width);
+  padding-top: calc(var(--header-height) + 12px);
+  min-height: 100vh;
+}
+
+/* Soft app background so rounded cards pop */
+.content-area { background: #f5f6f7; min-height: 100vh; }
+
+/* Rounded, subtle “surface” panels */
+.panel-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 16px;               /* rounded */
+  box-shadow: 0 2px 8px rgba(0,0,0,.04);
+}
+
+/* Small helpers */
+.table-rounded thead th { background:#f6f7f8; }
+.avatar { width: 36px; height: 36px; border-radius: 50%; background:#e9ecef;
+          display:flex; align-items:center; justify-content:center; }
+.code-chip {
+  display:inline-block; padding:8px 12px; background:#f2f4f7; border-radius:10px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+/* ===== Cards ===== */
+.panel-card {
+  border-radius: 16px !important;
+  border: 1px solid rgba(0,0,0,.06) !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+  background: #fff;
+}
+
+/* ===== Header bar (title + date picker) ===== */
+.header-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; flex-wrap: wrap;
+}
+
+/* ===== Inputs ===== */
+.search-input input.form-control {
+  border-radius: 12px; border-color: #e6e6e6; padding: 10px 12px;
+  box-shadow: none;
+}
+.search-input input.form-control:focus { border-color: #b8c1ff; box-shadow: 0 0 0 .2rem rgba(13,110,253,.1); }
+
+/* dcc.Dropdown (react-select v1) */
+.dd-compact .Select-control {
+  border-radius: 12px; border-color: #e6e6e6; box-shadow: none;
+  min-height: 42px;
+}
+.dd-compact .Select-placeholder, .dd-compact .Select-value-label { line-height: 40px; }
+.dd-compact .Select--multi .Select-value { 
+  background: #f1f3f9; color: #2d3653; border: 0; border-radius: 10px; 
+}
+.dd-compact .Select-menu-outer { border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+
+/* Put the calendar popover above sticky headers / tables */
+.panel-card { position: relative; }                 /* ensure a stacking context */
+.DateRangePicker_picker { z-index: 2000 !important; } /* calendar layer */
+.DateRangePicker { z-index: 2000 !important; }        /* safety for nested wrappers */
+
+/* Remove the teal underline + make inputs look like a single rounded control */
+.DateRangePickerInput {
+  border: 1px solid #e6e6e6 !important;
+  border-radius: 12px !important;
+  overflow: hidden; /* clip inner focus underline */
+}
+.DateInput_input,
+.DateInput_input__focused {
+  border-bottom: 0 !important;      /* kill default bottom border */
+  box-shadow: none !important;
+  padding: 10px 12px !important;
+  font-size: .95rem !important;
+}
+.DateRangePickerInput_arrow { padding: 0 8px; }
+
+
+/* ===== Badges (soft pills) ===== */
+.badge.badge-soft { border: 1px solid transparent; font-weight: 600; }
+.badge-soft.bg-success { background: rgba(var(--bs-success-rgb), .12) !important; color: rgb(var(--bs-success-rgb)) !important; border-color: rgba(var(--bs-success-rgb), .25) !important; }
+.badge-soft.bg-warning { background: rgba(var(--bs-warning-rgb), .16) !important; color: #9a7700 !important; border-color: rgba(var(--bs-warning-rgb), .3) !important; }
+.badge-soft.bg-danger  { background: rgba(var(--bs-danger-rgb),  .12) !important; color: rgb(var(--bs-danger-rgb))  !important; border-color: rgba(var(--bs-danger-rgb),  .25) !important; }
+
+/* ===== Modern table ===== */
+.table-modern {
+  --row-hover: rgba(13,110,253,.06);
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border-radius: 14px;
+}
+.table-modern thead th {
+  position: sticky; top: 0; z-index: 1;
+  background: #f6f7fb; border-bottom: 1px solid #eceef5;
+  text-transform: none; letter-spacing: .02em; font-weight: 600;
+  color: #4a5568;
+}
+.table-modern tbody tr { 
+  border-bottom: 1px solid #f1f3f7;
+}
+.table-modern tbody tr:nth-child(odd) { background: #fff; }
+.table-modern tbody tr:nth-child(even) { background: #fcfcff; }
+.table-modern tbody tr:hover { background: var(--row-hover); }
+.table-modern td, .table-modern th { padding: 14px 16px; vertical-align: middle; }
+

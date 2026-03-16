@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market Intelligence – Oil & Commodities</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="/styles.css">
+  <script>
+    (function() {
+      var theme = localStorage.getItem('market-int-theme') || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="brand">
+        <img src="/assets/nix-full-icon.svg" class="brand-logo" alt="Logo">
+        <div class="brand-powered-row">
+          <span class="brand-powered-text">Powered by</span>
+          <img src="/assets/nix-icon.svg" class="brand-powered-icon" alt="NIX">
+        </div>
+      </div>
+      <div class="header-timespan" id="header-timespan"></div>
+      <div class="header-actions">
+        <button type="button" class="search-trigger icon-btn" id="search-trigger" aria-label="Search (⌘K)"><i class="bi bi-search"></i><span class="search-kbd">⌘K</span></button>
+        <span class="header-clock" id="header-clock" aria-label="Last updated"></span>
+        <button type="button" class="icon-btn plus-btn" id="add-btn" aria-label="Add"><i class="bi bi-plus-lg"></i></button>
+        <button type="button" class="icon-btn" id="theme-btn" aria-label="Toggle theme"><i class="bi bi-moon"></i></button>
+        <div class="avatar"><i class="bi bi-person-fill"></i></div>
+      </div>
+    </div>
+  </header>
+
+  <main id="content" class="content-area">
+    <div id="content-body" class="content-body"></div>
+  </main>
+
+  <div class="search-overlay" id="search-overlay" aria-hidden="true">
+    <div class="search-modal">
+      <input type="text" class="search-input" id="search-input" placeholder="Jump to section…" autocomplete="off">
+      <ul class="search-results" id="search-results"></ul>
+    </div>
+  </div>
+
+  <div id="settings-overlay" class="settings-overlay" aria-hidden="true">
+    <div class="settings-modal">
+      <div class="settings-header">
+        <h2 class="settings-title">Settings</h2>
+        <button type="button" class="icon-btn settings-close" id="settings-close" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+      </div>
+      <div class="settings-body">
+        <section class="settings-section">
+          <h3 class="settings-section-title">Theme</h3>
+          <div class="settings-row">
+            <label><input type="radio" name="settings-theme" value="light"> Light</label>
+            <label><input type="radio" name="settings-theme" value="dark"> Dark</label>
+          </div>
+        </section>
+        <section class="settings-section">
+          <h3 class="settings-section-title">Panels</h3>
+          <p class="settings-hint">Show or hide sections on the dashboard.</p>
+          <div id="settings-panels" class="settings-panels"></div>
+        </section>
+        <section class="settings-section">
+          <h3 class="settings-section-title">Refresh</h3>
+          <label>Price refresh interval (seconds)
+            <select id="settings-refresh-interval">
+              <option value="60">60</option>
+              <option value="120">120</option>
+              <option value="300" selected>300 (5 min)</option>
+            </select>
+          </label>
+        </section>
+        <section class="settings-section">
+          <h3 class="settings-section-title">Data</h3>
+          <div class="settings-row">
+            <button type="button" class="settings-btn" id="settings-export">Export settings</button>
+            <button type="button" class="settings-btn" id="settings-import">Import settings</button>
+            <input type="file" id="settings-file-input" accept=".json" style="display:none">
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <aside id="country-panel" class="country-panel" aria-hidden="true">
+    <div class="country-panel-inner">
+      <div class="country-panel-header">
+        <h2 id="country-panel-title" class="country-panel-title">Country</h2>
+        <button type="button" class="icon-btn country-panel-close" id="country-panel-close" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+      </div>
+      <div id="country-panel-price" class="country-panel-price"></div>
+      <h3 class="country-panel-news-title">News</h3>
+      <div id="country-panel-news" class="country-panel-news"><p class="loading">Loading…</p></div>
+    </div>
+  </aside>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="/app.js"></script>
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+{
+  "refiningHubs": [
+    {"name": "Jamnagar", "country": "India", "lat": 22.47, "lon": 70.05, "capacity": "1.24M bpd"},
+    {"name": "Ras Tanura", "country": "Saudi Arabia", "lat": 26.65, "lon": 50.0, "capacity": "0.55M bpd"},
+    {"name": "Houston", "country": "USA", "lat": 29.7, "lon": -95.0, "capacity": "2.6M bpd"},
+    {"name": "Rotterdam", "country": "Netherlands", "lat": 51.9, "lon": 4.5, "capacity": "1.2M bpd"},
+    {"name": "Singapore", "country": "Singapore", "lat": 1.27, "lon": 103.8, "capacity": "1.5M bpd"},
+    {"name": "Ulsan", "country": "South Korea", "lat": 35.5, "lon": 129.4, "capacity": "0.84M bpd"},
+    {"name": "Fujairah", "country": "UAE", "lat": 25.1, "lon": 56.3, "capacity": "0.6M bpd"},
+    {"name": "Antwerp", "country": "Belgium", "lat": 51.2, "lon": 4.4, "capacity": "0.4M bpd"},
+    {"name": "Yanbu", "country": "Saudi Arabia", "lat": 24.1, "lon": 38.1, "capacity": "0.4M bpd"},
+    {"name": "Baton Rouge", "country": "USA", "lat": 30.5, "lon": -91.2, "capacity": "0.5M bpd"}
+  ],
+  "chokepoints": [
+    {"name": "Strait of Hormuz", "lat": 26.5, "lon": 56.3, "oilShare": "21% global"},
+    {"name": "Strait of Malacca", "lat": 2.0, "lon": 101.5, "oilShare": "30% global"},
+    {"name": "Suez Canal", "lat": 30.0, "lon": 32.3, "oilShare": "9% global"},
+    {"name": "Bab el-Mandeb", "lat": 12.6, "lon": 43.3, "oilShare": "5% global"},
+    {"name": "Panama Canal", "lat": 9.0, "lon": -79.5, "oilShare": "2% global"},
+    {"name": "Bosphorus", "lat": 41.0, "lon": 29.0, "oilShare": "3% global"}
+  ],
+  "oilPorts": [
+    {"name": "Ras Tanura", "lat": 26.65, "lon": 50.0, "type": "export"},
+    {"name": "Houston", "lat": 29.7, "lon": -95.0, "type": "export"},
+    {"name": "Fujairah", "lat": 25.1, "lon": 56.3, "type": "hub"},
+    {"name": "Rotterdam", "lat": 51.9, "lon": 4.5, "type": "hub"},
+    {"name": "Singapore", "lat": 1.27, "lon": 103.8, "type": "hub"},
+    {"name": "Shanghai", "lat": 31.2, "lon": 121.5, "type": "import"},
+    {"name": "Yokohama", "lat": 35.4, "lon": 139.6, "type": "import"}
+  ],
+  "productionRegions": [
+    {"name": "Permian Basin", "lat": 31.9, "lon": -102.4, "region": "USA"},
+    {"name": "North Sea", "lat": 58.0, "lon": 2.0, "region": "UK/Norway"},
+    {"name": "Gulf of Mexico", "lat": 27.5, "lon": -92.0, "region": "USA"},
+    {"name": "West Siberia", "lat": 61.0, "lon": 76.0, "region": "Russia"},
+    {"name": "Ghawar", "lat": 25.4, "lon": 49.7, "region": "Saudi Arabia"},
+    {"name": "Zagros", "lat": 30.5, "lon": 50.5, "region": "Iran"},
+    {"name": "Niger Delta", "lat": 5.5, "lon": 6.0, "region": "Nigeria"},
+    {"name": "Pre-salt Brazil", "lat": -22.0, "lon": -40.0, "region": "Brazil"}
+  ],
+  "pipelines": [
+    {"name": "Druzhba", "coords": [[55.7, 37.6], [52.4, 21.0], [50.1, 14.4], [48.2, 16.4]]},
+    {"name": "Trans-Alaska", "coords": [[70.2, -148.5], [64.8, -147.8], [61.2, -149.9]]},
+    {"name": "Baku-Tbilisi-Ceyhan", "coords": [[40.4, 49.9], [41.7, 44.8], [36.9, 35.0]]}
+  ],
+  "conflicts": [
+    {"name": "Red Sea / Yemen", "lat": 15.5, "lon": 43.0, "impact": "Shipping risk", "description": "Houthi attacks on shipping; Bab el-Mandeb transit at risk."},
+    {"name": "Strait of Hormuz", "lat": 26.5, "lon": 56.3, "impact": "Chokepoint risk", "description": "Tensions; ~21% of global oil passes through."},
+    {"name": "Libya", "lat": 27.0, "lon": 17.0, "impact": "Production at risk", "description": "Political instability; oil field disruptions."},
+    {"name": "Niger Delta", "lat": 5.5, "lon": 6.0, "impact": "Production at risk", "description": "Militancy and sabotage; Nigerian crude supply."},
+    {"name": "Venezuela", "lat": 8.0, "lon": -66.0, "impact": "Production decline", "description": "Sanctions and underinvestment; export capacity limited."},
+    {"name": "Eastern Mediterranean", "lat": 33.0, "lon": 33.0, "impact": "Gas & shipping", "description": "Regional tensions; gas pipeline and LNG routes."}
+  ]
+}

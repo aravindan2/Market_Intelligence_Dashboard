@@ -1,0 +1,10 @@
+{
+  "wti_max": 90,
+  "wti_min": 60,
+  "brent_max": 95,
+  "brent_min": 62,
+  "volatility_pct_max": 5,
+  "refining_margin_min": 2,
+  "price_above_30d_avg_alert": true,
+  "spread_brent_wti_max": 5
+}
