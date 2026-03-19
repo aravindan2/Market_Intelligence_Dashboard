@@ -5,6 +5,7 @@ on:
     branches: [main]
 
 env:
+  PROJECT_ID: market-int-490219
   ZONE: us-central1-c
   INSTANCE_NAME: market-int
 
