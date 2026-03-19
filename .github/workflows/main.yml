@@ -1,0 +1,33 @@
+name: Deploy to GCP VM (Docker Compose)
+
+on:
+  push:
+    branches: [main]
+
+env:
+  ZONE: us-central1-c
+  INSTANCE_NAME: market-int
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Authenticate to GCP
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP}}
+
+      - name: Setup gcloud
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: SSH and deploy
+        run: |
+          gcloud compute ssh $INSTANCE_NAME \
+            --zone $ZONE \
+            --command "
+              cd your-repo &&
+              git pull origin main &&
+              docker compose up --build -d &&
+              docker image prune -f
+            "
